@@ -1,0 +1,14 @@
+
+khởi tạo dự án: npm init 
+-- npm i express
+package.json quản lý dependencies của pj 
+package-lock.json quản lý dependencies của quản lý dependencies ... của pj 
+
+run: node index.js -- khi thay doi thì phải ctrl+C rồi restart chứ k tự restart
+-- muốn tự restart khi file change thì dùng: 
+    npx nodemon index.js 
+
+-- trong file package.json phần script thêm: "start": "nodemon --inspect ./index.js",
+-- inspect để debug 
+khi chạy gõ: npm start là được 
+-- phải: npm i nodemon để hiện nodemon trong dependencies thì khi inspect mới hiện icon node 

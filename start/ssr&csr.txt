@@ -1,0 +1,17 @@
+
+1. server side rendering: giao dien trả về nằm trong page source, dung cho seo, page source chua toan bo html, css dai vl
+2. client side rendering: giao dien trả về sau khi chạy js, dung cho trải nghiệm người dùng tốt hơn
+
+uu diem ssr:
+ - tot cho seo, vi noi dung nam het trong page source nen google de phan tich va tim tu khoa 
+ - Request nhanh hon trong luot truy cap dau tien 
+ - trinh duyet doc ma va render ra giao dien
+ - csr thì phải đọc file js, js thực thi xong thì mới có content 
+
+nhuoc diem ssr:
+ - tai lai ca trang 
+ - csr tai noi dung moi khi can 
+
+dung ssr don gian hiệu quả nhất cho bài toán đơn giản: báo chí, tin tức 
+ssr tai đủ dữ liệu luôn nên k cần api 
+csr code nhiều hơn, viet api 

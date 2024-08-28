@@ -1,0 +1,34 @@
+HTTP (tiếng Anh: HyperText Transfer Protocol - Giao thức truyền tải siêu văn bản) 
+là một giao thức lớp ứng dụng nằm trong bộ giao thức dành cho 
+hệ thống thông tin siêu phương tiện phân tán, cộng tác.[1] 
+Nó chính là nền tảng dùng để trao đổi và liên lạc dữ liệu với World Wide Web, 
+nơi mà các tập tin tài liệu siêu văn bản có thể chứa các siêu liên kết dẫn đến các tài nguyên số khác 
+mà người dùng có thể dễ dàng truy cập được bằng cách dùng chuột nhấp vào hoặc dùng ngón tay chạm 
+vào màn hình cảm ứng lúc duyệt web. Nhờ đó, HTTP cho phép người sử dụng truy cập và tải về các tài nguyên 
+như văn bản HTML, text, video, ảnh... của các trang web và hiển thị chúng trên trình duyệt.
+
+HTTP Request methods
+- get: lấy thông tin từ server
+- post: gửi data lên server
+
+HTTP Response: Khi nhận và phiên dịch một HTTP Request, máy chủ sẽ gửi tín hiệu phản hồi là một HTTP Response
+
+HTTP Status Code: Mã trạng thái HTTP được máy chủ phản hồi lại mỗi khi nhận được HTTP Resquest.
+
+1xx: Thông tin
+2xx: Thành công
+3xx: Sự điều hướng lại
+4xx: Lỗi Client
+5xx: Lỗi Server
+
+HTTP Headers: Là các thông số gửi kèm trong mỗi HTTP Request và Response. 
+Điều này giúp máy chủ và trình duyệt hiểu được dữ liệu được gửi đi và nhận về.
+
+HTTP Cookies: Là các mảnh thông tin nhỏ được lưu trữ trên máy tính của người dùng. 
+Nó giúp máy chủ nhận biết người dùng đã truy cập trang web của họ trước đó.
+
+HTTP Caching: Là cơ chế lưu trữ dữ liệu tạm thời trên máy chủ hoặc trình duyệt của người dùng. 
+Điều này giúp giảm thời gian tải trang và tăng tốc độ truy cập trang web.
+
+HTTP Session: Là một kết nối giữa máy chủ và trình duyệt của người dùng. 
+Nó cho phép máy chủ lưu trữ thông tin về phiên làm việc của người dùng để giữ họ đăng nhập và duy trì trạng thái trên trang web.
