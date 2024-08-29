@@ -12,3 +12,19 @@ run: node index.js -- khi thay doi thì phải ctrl+C rồi restart chứ k tự
 -- inspect để debug 
 khi chạy gõ: npm start là được 
 -- phải: npm i nodemon để hiện nodemon trong dependencies thì khi inspect mới hiện icon node 
+
+-- thu vien morgan: quan sát log từ client gửi lên server; HTTP request logger middleware for node.js
+-- npm i morgan --save-dev // chi dung phuc vu dev k dung trong du an that 
+
+-- install template engine: npm install express-handlebars
+-- doi duoi file handlebars -> hbs cho ngan extname='.hbs'
+-- nap partials vao main.hbs {{> header}}
+
+-- cai sass trong local project: npm install --save--dev sass
+-- Compile một file scss -> một file css
+-- sass --flag <input.scss> [output.css]
+-- https://fullstack.edu.vn/blog/update-cach-su-dung-package-sass-1.html
+-- npm run watch de compile scss -> css 
+-- chi viet vao file scss 
+
+-- file nodemon.json phan ext la duoi cac ten file khi thay doi noi dung nodemon se restart 
