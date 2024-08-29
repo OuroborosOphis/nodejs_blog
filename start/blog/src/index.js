@@ -5,8 +5,18 @@ const handlebars = require('express-handlebars')
 const app = express()
 const port = 3000
 
+const route = require('./routes')  // index.js trong routes se tu dong duoc require 
+
 // /img/logo.png -> se tim trong public/img/logo.png va hien thi ra
 app.use(express.static(path.join(__dirname, 'public')))
+
+// Middleware
+// dung cho gui form
+app.use(express.urlencoded({
+  extended: true
+}));
+// dung cho gui json tu client len server (axios, fetch) 
+app.use(express.json());
 
 // Http logger
 app.use(morgan('combined'))
@@ -20,14 +30,8 @@ app.set('views', path.join(__dirname, 'resources/views'));
 
 // console.log('PATH: ', path.join(__dirname, 'resources/views'));
 
-app.get('/', (req, res) => {
-  res.render('home');  // lay home.handlebars dua vao body trong main.handlebars 
-})
-
-app.get('/news', (req, res) => {
-  res.render('news')  // lay noi dung trong news.handlebars dua vao trong phan body cua file main.handlebars trong layouts
-})
-
+// Routes init
+route(app);  // dung route trong index.js
 
 // 127.0.0.1 is the local IP address (localhost)
 

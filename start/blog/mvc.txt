@@ -1,0 +1,16 @@
+
+-- view: chứa html, css
+-- model: tương tác lấy ra dữ liệu
+-- controller: 
+
+-- flow:
+ - ghi gõ vào trình duyệt 1 website thì sẽ req lên sv với http protocol 
+ - route sẽ định tuyến, rồi dispatch vào controller tương ứng 
+ -- controller tương tác với model lấy ra dữ liệu ở db 
+ -- sau đó controller dùng data lấy được truyền sang view để lấy view tương ứng 
+ -- controller sẽ nhận được view hoàn chỉnh và trả về cho web server rồi về browser (client)
+
+
+-- path viet o route, function handler viet o controller 
+-- route nap vao file index trong routes
+-- site.js, siteController chua cac trang khong can xu ly nhieu gop lai 

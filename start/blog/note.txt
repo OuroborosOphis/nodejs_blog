@@ -28,3 +28,25 @@ khi chạy gõ: npm start là được
 -- chi viet vao file scss 
 
 -- file nodemon.json phan ext la duoi cac ten file khi thay doi noi dung nodemon se restart 
+
+-- basic routing 
+-- routing la cach app phan hoi yeu cau cua client den 1 diem cuoi cu the
+-- uri (or path) va http request method 
+-- app.METHOD(PATH, HANDLER)
+
+-- query parameters: truyen du lieu qua url sau dau ?
+-- vd: http://localhost:3000/search?q=f8&ref=mycv&author=sondn 
+
+-- hanh vi mac dinh cua form 
+-- khi bam button submit, tim kiem tat ca the input co attr name 
+-- lay value cua name do va truyen di voi method la GET (default cua form) 
+-- gui qua url voi cac query parameters 
+-- dung post thi se gui ngam k hien thi qua url nua, submit duoi dang form data 
+-- action: attr cua form, khi submit se chuyen den url ghi trong nay 
+-- mac dinh action la url chua form 
+
+-- get: dung khi muon nhan du lieu tu sv ve client 
+-- post: dung khi muon gui du lieu tu client len sv 
+-- form data -> req.body 
+-- query parameters -> req.query 
+-- req.body tra ve undefined vi chua xu ly boi middleware -> apply middleware dung app.use 
