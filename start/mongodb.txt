@@ -1,0 +1,18 @@
+
+https://topdev.vn/blog/mongodb-la-gi/
+
+-- database hướng tài liệu (document)
+-- một dạng NoSQL database.
+-- MongoDB sẽ tránh cấu trúc table-based của relational database để 
+-- thích ứng với các tài liệu như JSON có một schema rất linh hoạt gọi là BSON
+-- MongoDB sử dụng lưu trữ dữ liệu dưới dạng Document JSON 
+-- nên mỗi một collection sẽ các các kích cỡ và các document khác nhau. 
+-- Các dữ liệu được lưu trữ trong document kiểu JSON nên truy vấn sẽ rất nhanh.
+
+-- mongoose là công cụ để mô hình hóa mongoDB, thiết kể để làm việc với môi trường bất đồng bộ 
+-- mongoose hỗ trợ cả promise và callback 
+
+-- để lấy nội dung trong db: 
+    - trong index.js (config/db) tạo function connect với mongodb
+    - tạo model tương ứng để lấy data 
+    - dùng controller để lấy data 
