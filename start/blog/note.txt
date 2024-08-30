@@ -50,3 +50,6 @@ khi chạy gõ: npm start là được
 -- form data -> req.body 
 -- query parameters -> req.query 
 -- req.body tra ve undefined vi chua xu ly boi middleware -> apply middleware dung app.use 
+
+
+-- format code: npm run beautiful (cho script cua package.json)
