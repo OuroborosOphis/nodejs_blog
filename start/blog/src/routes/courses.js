@@ -9,6 +9,9 @@ router.get('/:id/edit', courseController.edit)
 // sua du lieu trong database
 router.put('/:id', courseController.update)
 
+// xoa du lieu trong database
+router.delete('/:id', courseController.delete)
+
 router.get('/:slug', courseController.show)
 
 module.exports = router;
