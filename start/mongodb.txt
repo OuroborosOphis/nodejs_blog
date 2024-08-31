@@ -16,3 +16,6 @@ https://topdev.vn/blog/mongodb-la-gi/
     - trong index.js (config/db) tạo function connect với mongodb
     - tạo model tương ứng chọc vào db để lấy document  
     - rồi render ra 
+
+
+-- create: https://mongoosejs.com/docs/models.html#constructing-documents
