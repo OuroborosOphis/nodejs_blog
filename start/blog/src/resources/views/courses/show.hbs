@@ -11,8 +11,9 @@
 
         <div class="col-lg-9">
             <h2>{{course.name}}</h2>
+            {{!-- ngao da viet 1 cai videoId 1 cai videoID khac chu d voi D :D --}}
             {{!-- cái này thì video nhúng trực tiếp = mongodb thì ok, nhưng tạo qua form thì lại đ xem đc ??? --}}
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoID}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {{!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoID}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
             {{!-- cái này thì tạo qua form xem được, nhúng trực tiếp thì đ ??? ảo vcl --}}
             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p>{{course.description}}</p>

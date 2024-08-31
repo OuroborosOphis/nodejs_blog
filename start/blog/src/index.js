@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express')
 const morgan = require('morgan')
 const handlebars = require('express-handlebars')
+// ghi de len phuong thuc get, post cua form html bang cach them _method=PUT, _method=DELETE
+const methodOverride = require('method-override') 
 const app = express()
 const port = 3000
 
@@ -22,13 +24,22 @@ app.use(express.urlencoded({
 // dung cho gui json tu client len server (axios, fetch) 
 app.use(express.json());
 
+// method override 
+app.use(methodOverride('_method'))
+
 // Http logger
 app.use(morgan('combined'))
 
 // Template engine
-app.engine('hbs', handlebars.engine({
-  extname: '.hbs'
-}));
+app.engine(
+    'hbs', 
+    handlebars.engine({
+      extname: '.hbs',
+      helpers: {
+        sum: (a, b) => a + b,
+      }
+    })
+);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 

@@ -27,6 +27,30 @@ class CourseController {
 
             });
     }
+
+    // [GET] /courses/:id/edit
+    edit(req, res, next){
+        Course.findById(req.params.id).lean()
+            .then(course => res.render('courses/edit', { course }))
+            .catch(next);
+    }
+
+    // [PUT] /courses/:id
+    update(req, res, next){
+        Course.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
+    }
 }
+
+// GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD
+// GET: gui yeu cau len sv va tra du lieu ve cho client 
+// POST: gui yeu cau len sv va luu du lieu vao database
+// PUT: gui yeu cau len sv va cap nhat du lieu trong database (toan bo)
+// PATCH: gui yeu cau len sv va cap nhat du lieu trong database (1 phan)
+// DELETE: gui yeu cau len sv va xoa du lieu trong database
+// OPTIONS: gui yeu cau len sv de xem xet cac phuong thuc ho tro
+// HEAD: giong nhu GET nhung khong co phan body
+
 
 module.exports = new CourseController();

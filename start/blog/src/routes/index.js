@@ -1,8 +1,12 @@
 const newsRouter = require('./news');
 const siteRouter = require('./site');
 const courseRouter = require('./courses');
+const meRouter = require('./me');
 
 function routes(app) {
+    // khi nguoi dung truy cap vao /me thi se chay vao meRouter trong file me.js
+    app.use('/me', meRouter);
+    
     // khi nguoi dung truy cap vao /news thi se chay vao newsRouter trong file news.js 
     app.use('/news', newsRouter);
 
