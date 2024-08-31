@@ -14,5 +14,5 @@ https://topdev.vn/blog/mongodb-la-gi/
 
 -- để lấy nội dung trong db: 
     - trong index.js (config/db) tạo function connect với mongodb
-    - tạo model tương ứng để lấy data 
-    - dùng controller để lấy data 
+    - tạo model tương ứng chọc vào db để lấy document  
+    - rồi render ra 
