@@ -1,9 +1,7 @@
 <div class="mt-4">
     <div>
-        <h3>Khóa học của tôi</h3>
-        {{!-- {{#if deletedCount}} --}}
-        <a href="/me/trash/courses">Thùng rác ({{deletedCount}})</a>
-        {{!-- {{/if}} --}}
+        <a href="/me/stored/courses">Danh sách khóa học</a>
+        <h3>Khóa học đã xóa</h3>
     </div>
     
     <table class="table mt-4">
@@ -12,7 +10,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Tên khóa học</th>
                 <th scope="col">Trình độ</th>
-                <th scope="col" col-span="2">Thời gian tạo</th>
+                <th scope="col" col-span="2">Thời gian xóa</th>
             </tr>
         </thead>
         <tbody>
@@ -21,11 +19,11 @@
                 <th scope="row">{{sum @index 1}}</th>
                 <td>{{this.name}}</td>
                 <td>{{this.level}}</td>
-                <td>{{this.createdAt}}</td>
+                <td>{{this.deletedAt}}</td>
                 <td>
-                    <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
-                    <a href="/courses/{{this._id}}/delete" class="btn btn-link" data-id="{{this._id}}"
-                        data-toggle="modal" data-target="#delete-course-modal">Xóa</a>
+                    <a href="" class="btn btn-link btn-restore" data-id="{{this._id}}">Khôi phục</a>
+                    <a href="" class="btn btn-link" data-id="{{this._id}}"
+                        data-toggle="modal" data-target="#delete-course-modal">Xóa vĩnh viễn</a>
                 </td>
             </tr>
 
@@ -33,8 +31,8 @@
             {{else}}
             <tr>
                 <td colspan="5" class="text-center">
-                    Bạn chưa đăng khóa học nào.
-                    <a href="/courses/create">Đăng khóa học</a>
+                    Thùng rác trống. 
+                    <a href="/me/stored/courses">Danh sách khóa học</a>
                 </td>
             </tr>
 
@@ -56,11 +54,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                Bạn chắc chắn muốn xóa khóa học này?
+                Hành động này không thể khôi phục. Bạn có chắc chắn muốn xóa khóa học này không?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                <button id="btn-delete-course" type="button" class="btn btn-danger">Xóa bỏ</button>
+                <button id="btn-delete-course" type="button" class="btn btn-danger">Xóa vĩnh viễn</button>
             </div>
         </div>
     </div>
@@ -68,6 +66,7 @@
 
 {{!-- delete hidden form --}}
 <form name="delete-course-form" method="POST"></form>
+<form name="restore-course-form" method="POST"></form>
 
 <script>
 
@@ -75,7 +74,9 @@
     document.addEventListener('DOMContentLoaded', function(){
         var courseId;
         var deleteForm = document.forms['delete-course-form'];
+        var restoreForm = document.forms['restore-course-form'];
         var btnDeleteCourse = document.getElementById('btn-delete-course')
+        var btnRestore = $('.btn-restore')
 
         // khi modal hien thi thi lay id cua course
         $('#delete-course-modal').on('show.bs.modal', function (event) {
@@ -85,9 +86,21 @@
 
         btnDeleteCourse.addEventListener('click', function(){
             // set action cho form 
-            deleteForm.action = '/courses/' + courseId + '?_method=DELETE'
+            deleteForm.action = '/courses/' + courseId + '/force?_method=DELETE'
             // submit form
             deleteForm.submit()
+        })
+
+        // Restore button clicked 
+        btnRestore.click(function(e){
+            e.preventDefault()  // ngan hanh vi mac dinh cua the a khi no rong la di den chinh trang chua no 
+            
+            // lay id cua course
+            courseId = $(this).data('id') 
+            // set action cho form
+            restoreForm.action = '/courses/' + courseId + '/restore?_method=PATCH'
+            // submit form
+            restoreForm.submit()
         })
     })
 

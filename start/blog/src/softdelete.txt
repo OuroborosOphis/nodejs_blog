@@ -1,0 +1,9 @@
+
+- delete (soft)
+- restore
+- force delete
+
+1. Create -> POST   
+2. Update -> PUT, PATCH
+3. Delete -> DELETE 
+4. Read -> GET 
