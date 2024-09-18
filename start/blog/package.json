@@ -35,11 +35,13 @@
     }
   },
   "dependencies": {
+    "bootstrap-icons": "^1.11.3",
     "express": "^4.19.2",
     "express-handlebars": "^8.0.1",
     "method-override": "^3.0.0",
     "mongoose": "^8.6.0",
     "mongoose-delete": "^1.0.2",
+    "mongoose-sequence": "^6.0.1",
     "mongoose-slug-updater": "^3.3.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.4",

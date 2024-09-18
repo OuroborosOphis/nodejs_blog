@@ -3,8 +3,19 @@ const Course = require('../models/Course');
 class MeController {
     // [GET] /stored/courses
     storedCourses(req, res, next) {
+        // let courseQuery = Course.find({}).lean();
 
-        Promise.all([Course.find({}).lean(), Course.countDocumentsWithDeleted( { deleted: true })])
+        // // sap xep theo column va type
+        // if (req.query.hasOwnProperty('_sort')) { // neu co _sort trong query
+        //     courseQuery = courseQuery.sort({  // sap xep theo column va type
+        //         [req.query.column]: ['asc', 'desc'].includes(req.query.type) ? req.query.type : 'desc'
+        //     });
+        // }
+
+        // de lay duoc so luong cac course da bi xoa 
+        Promise.all([
+            Course.find({}).lean().sortable(req), // khi can sap xep thi goi ham sortable 
+            Course.countDocumentsWithDeleted( { deleted: true })])
             .then(([courses, deletedCount]) => 
                 res.render('me/stored-courses', {
                     deletedCount,

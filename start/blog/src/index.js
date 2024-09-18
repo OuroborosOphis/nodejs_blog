@@ -4,6 +4,9 @@ const morgan = require('morgan')
 const handlebars = require('express-handlebars')
 // ghi de len phuong thuc get, post cua form html bang cach them _method=PUT, _method=DELETE
 const methodOverride = require('method-override') 
+
+const sortMiddleware = require('./app/middlewares/sortMiddleware') 
+
 const app = express()
 const port = 3000
 
@@ -27,6 +30,45 @@ app.use(express.json());
 // method override 
 app.use(methodOverride('_method'))
 
+// custom middleware
+app.use(sortMiddleware);
+
+// chay function 1 -> function 2 
+// neu function 1 return next() thi se chay function 2
+// middleware chi anh huong den 1 route cu the 
+// neu dung app.use thi se anh huong den tat ca cac route 
+// neu dung app.get thi chi anh huong den route do
+app.get('/middleware', 
+  function (req, res, next) {
+    if (['vethuong', 'vevip'].includes(req.query.ve)) {
+      req.face = 'Gach gach gach!!!';
+      return next();
+    }
+    res.status(403).json({
+      message: 'Access denied!'
+    })
+  },
+  function (req, res, next) {
+  res.json({
+    message: 'Successfully!',
+    face: req.face
+  });
+});
+
+// dung middleware cho tat ca cac route
+// neu khong them ?ve=vethuong hoac ?ve=vevip thi se tra ve loi 403
+// app.use(bacBaoVe);
+// app.use('/test', bacBaoVe); // chi dung cho route /test
+// function bacBaoVe(req, res, next) {
+// if (['vethuong', 'vevip'].includes(req.query.ve)) {
+//   req.face = 'Gach gach gach!!!';
+//   return next();
+// }
+// res.status(403).json({
+//   message: 'Access denied!'
+// })
+// }
+
 // Http logger
 app.use(morgan('combined'))
 
@@ -35,9 +77,7 @@ app.engine(
     'hbs', 
     handlebars.engine({
       extname: '.hbs',
-      helpers: {
-        sum: (a, b) => a + b,
-      }
+      helpers: require('./helpers/handlebars')
     })
 );
 app.set('view engine', 'hbs');
